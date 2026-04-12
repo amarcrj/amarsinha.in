@@ -1,6 +1,6 @@
 // src/components/Hero.tsx
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Globe, ChevronDown } from 'lucide-react';
+import { Github, Linkedin, Mail, Globe } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import profilePhoto from '@/assets/profile-photo.jpg';
@@ -18,7 +18,7 @@ export const Hero = () => {
   const isDark = theme === 'dark';
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center bg-gradient-hero overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-grid opacity-30" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-glow animate-glow-pulse" />
@@ -44,7 +44,6 @@ export const Hero = () => {
           >
             {/* Profile Photo with surrounding circular text */}
             <div className="relative inline-block mb-12 md:mb-16">
-              {/* Avatar - fixed in center */}
               <motion.div
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -62,7 +61,6 @@ export const Hero = () => {
                 </Avatar>
               </motion.div>
 
-              {/* Circular text absolutely positioned around avatar */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="pointer-events-auto">
                   <CircularText
@@ -114,20 +112,6 @@ export const Hero = () => {
             </motion.div>
           </motion.div>
         </div>
-      </div>
-
-      {/* Scroll Indicator - Centered on all devices */}
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center pointer-events-none">
-        <motion.div
-          className="pointer-events-auto"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <a href="#about" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-            <span className="text-xs uppercase tracking-widest">Scroll</span>
-            <ChevronDown className="w-5 h-5" />
-          </a>
-        </motion.div>
       </div>
     </section>
   );
