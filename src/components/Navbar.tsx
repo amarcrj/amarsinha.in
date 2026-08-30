@@ -1,7 +1,7 @@
 // src/components/Navbar.tsx
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, GraduationCap, FileText, Sparkles } from 'lucide-react';
+import { Menu, X, GraduationCap, FileText } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import scholarData from '@/data/scholarData.json';
 
@@ -45,27 +45,25 @@ export const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-3 sm:pt-4 pointer-events-none">
       <motion.nav
-        initial={{ y: -50, opacity: 0 }}
+        initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className={`max-w-5xl mx-auto rounded-full transition-all duration-500 pointer-events-auto px-4 sm:px-6 py-2.5 sm:py-3 ${
+        transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+        className={`max-w-5xl mx-auto rounded-full transition-all duration-300 pointer-events-auto px-4 sm:px-5 py-2 sm:py-2.5 ${
           isScrolled
-            ? 'glass shadow-2xl bg-background/80 backdrop-blur-2xl border border-white/10 dark:border-white/10'
-            : 'glass bg-background/50 backdrop-blur-xl border border-white/5 dark:border-white/5'
+            ? 'glass shadow-2xl bg-background/85 backdrop-blur-2xl border border-white/10'
+            : 'glass bg-background/60 backdrop-blur-xl border border-white/5'
         }`}
       >
         <div className="flex items-center justify-between">
-          {/* Logo with pulsing glowing orb */}
+          {/* Clean Typography Brand Logo (AS Circle removed) */}
           <motion.a
             href="#"
-            className="flex items-center gap-2.5 text-sm sm:text-base font-bold text-foreground group"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
+            className="flex items-center gap-2 text-sm sm:text-base font-bold text-foreground group pl-1.5"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-primary to-indigo-500 flex items-center justify-center text-primary-foreground font-display font-extrabold text-xs shadow-glow">
-              AS
-            </div>
-            <span className="font-display font-bold tracking-tight text-sm hidden sm:inline-block">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary/80 group-hover:bg-primary transition-colors" />
+            <span className="font-display font-bold tracking-tight text-sm sm:text-base text-foreground">
               Amar Sinha
             </span>
           </motion.a>
@@ -90,7 +88,7 @@ export const Navbar = () => {
                   {(isHovered || (isActive && hoveredIndex === null)) && (
                     <motion.div
                       layoutId="navbar-pill"
-                      transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                      transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                       className="absolute inset-0 rounded-full bg-secondary/80 -z-10 border border-white/10"
                     />
                   )}
@@ -109,9 +107,9 @@ export const Navbar = () => {
               href={scholarData.profile.scholarUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold liquid-pill text-foreground hover:text-primary rounded-full transition-all"
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold liquid-pill text-foreground/90 hover:text-primary rounded-full transition-all border border-border/80 hover:border-primary/40"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
               title="Google Scholar Profile"
             >
               <GraduationCap className="w-3.5 h-3.5 text-primary" />
@@ -122,9 +120,9 @@ export const Navbar = () => {
             <motion.a
               href="/AMAR_CV.pdf"
               target="_blank"
-              className="px-3.5 sm:px-4 py-1.5 text-xs font-bold bg-primary text-primary-foreground rounded-full shadow-glow hover:opacity-95 transition-all flex items-center gap-1.5"
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
+              className="px-3.5 sm:px-4 py-1.5 text-xs font-semibold glass border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground rounded-full transition-all flex items-center gap-1.5"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
               <FileText className="w-3.5 h-3.5" />
               <span>CV</span>
@@ -176,7 +174,7 @@ export const Navbar = () => {
                 <a
                   href="/AMAR_CV.pdf"
                   target="_blank"
-                  className="flex-1 py-2 text-xs font-semibold bg-primary text-primary-foreground rounded-xl text-center"
+                  className="flex-1 py-2 text-xs font-semibold border border-primary/50 text-primary rounded-xl text-center"
                 >
                   CV
                 </a>
