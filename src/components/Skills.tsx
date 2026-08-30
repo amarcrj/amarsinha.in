@@ -1,7 +1,8 @@
 // src/components/Skills.tsx
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Cpu, Code, Wrench, Cloud, Network, Brain, Terminal, Shield } from 'lucide-react';
+import { Cpu, Code, Wrench, Network, Brain, Shield } from 'lucide-react';
+import { SpotlightCard } from './animations/SpotlightCard';
 
 const skillCategories = [
   {
@@ -42,49 +43,52 @@ export const Skills: React.FC = () => {
 
   return (
     <section id="skills" className="section-padding relative overflow-hidden">
-      <div className="container mx-auto px-6" ref={ref}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-14"
         >
-          <span className="text-primary text-sm font-medium uppercase tracking-widest font-mono">
+          <span className="text-primary text-xs sm:text-sm font-medium uppercase tracking-widest font-mono">
             Methodology & Toolset
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-2.5">
             Technical & Research <span className="text-gradient">Competencies</span>
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm text-muted-foreground mt-3 max-w-2xl mx-auto">
             Practical mastery across network protocol engineering, deep learning model architectures, and experimental hardware testbeds.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.08 * index }}
-              className="p-6 rounded-3xl glass border border-border/70 hover:border-primary/40 hover:shadow-card-hover transition-all duration-300 group flex flex-col justify-between"
+              transition={{ duration: 0.4, delay: 0.06 * index }}
+              className="flex"
             >
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-secondary/80 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                  <category.icon className="w-5 h-5" />
+              <SpotlightCard className="p-6 flex flex-col justify-between w-full group hover:border-primary/40 transition-all duration-300">
+                <div>
+                  <div className="w-11 h-11 rounded-2xl bg-secondary/80 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                    <category.icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-foreground mb-3">{category.title}</h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {category.skills.map((skill) => (
+                      <motion.span
+                        key={skill}
+                        whileHover={{ scale: 1.05, y: -1 }}
+                        className="text-xs px-2.5 py-1 rounded-xl bg-secondary/40 text-muted-foreground border border-border/40 font-mono hover:text-foreground hover:bg-secondary transition-colors cursor-default"
+                      >
+                        {skill}
+                      </motion.span>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">{category.title}</h3>
-                <div className="flex flex-wrap gap-1.5">
-                  {category.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="text-xs px-2.5 py-1 rounded-xl bg-secondary/40 text-muted-foreground border border-border/40 font-mono hover:text-foreground hover:bg-secondary transition-colors"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>

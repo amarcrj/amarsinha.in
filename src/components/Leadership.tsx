@@ -1,7 +1,8 @@
 // src/components/Leadership.tsx
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Users, Award, Shield, CheckCircle2 } from 'lucide-react';
+import { Users, Award, Shield } from 'lucide-react';
+import { SpotlightCard } from './animations/SpotlightCard';
 
 const leadership = [
   {
@@ -58,55 +59,57 @@ export const Leadership: React.FC = () => {
 
   return (
     <section id="leadership" className="section-padding relative overflow-hidden">
-      <div className="container mx-auto px-6" ref={ref}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10" ref={ref}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-14"
         >
-          <span className="text-primary text-sm font-medium uppercase tracking-widest font-mono">
+          <span className="text-primary text-xs sm:text-sm font-medium uppercase tracking-widest font-mono">
             Service & Community
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-2.5">
             Leadership & <span className="text-gradient">Professional Service</span>
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm text-muted-foreground mt-3 max-w-2xl mx-auto">
             Active stewardship in IEEE student chapters, institutional councils, and international technical societies.
           </p>
         </motion.div>
 
         {/* Roles Grid */}
-        <div className="grid lg:grid-cols-3 gap-6 mb-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-5 sm:gap-6 mb-10 sm:mb-12 max-w-6xl mx-auto">
           {leadership.map((item, index) => (
             <motion.div
               key={item.role}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.1 * index }}
-              className="p-6 rounded-3xl glass border border-border/70 hover:border-primary/40 hover:shadow-card-hover transition-all duration-300 group flex flex-col justify-between"
+              transition={{ duration: 0.4, delay: 0.08 * index }}
+              className="flex"
             >
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-secondary/80 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                  <item.icon className="w-5 h-5" />
-                </div>
-                <span className="text-xs font-mono font-bold text-primary uppercase tracking-wider">
-                  {item.period}
-                </span>
-                <h3 className="text-lg font-bold text-foreground mt-1.5">{item.role}</h3>
-                <p className="text-xs font-semibold text-primary/90 mt-0.5">{item.organization}</p>
-                <p className="text-[11px] text-muted-foreground">{item.location}</p>
+              <SpotlightCard className="p-6 flex flex-col justify-between w-full group hover:border-primary/40 transition-all duration-300">
+                <div>
+                  <div className="w-11 h-11 rounded-2xl bg-secondary/80 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                    <item.icon className="w-5 h-5" />
+                  </div>
+                  <span className="text-xs font-mono font-bold text-primary uppercase tracking-wider">
+                    {item.period}
+                  </span>
+                  <h3 className="text-base sm:text-lg font-bold text-foreground mt-1.5">{item.role}</h3>
+                  <p className="text-xs font-semibold text-primary/90 mt-0.5">{item.organization}</p>
+                  <p className="text-[11px] text-muted-foreground">{item.location}</p>
 
-                <ul className="mt-4 space-y-2">
-                  {item.achievements.map((achievement, i) => (
-                    <li key={i} className="text-xs text-muted-foreground flex items-start gap-2">
-                      <span className="text-primary mt-0.5">▹</span>
-                      <span>{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                  <ul className="mt-4 space-y-2">
+                    {item.achievements.map((achievement, i) => (
+                      <li key={i} className="text-xs text-muted-foreground flex items-start gap-2">
+                        <span className="text-primary mt-0.5">▹</span>
+                        <span>{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>
@@ -116,21 +119,24 @@ export const Leadership: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="p-8 rounded-3xl glass border border-border/70 text-center max-w-4xl mx-auto"
+          className="max-w-4xl mx-auto"
         >
-          <h3 className="text-base font-bold text-foreground mb-4 uppercase tracking-wider font-mono text-xs text-primary">
-            Professional Society Memberships
-          </h3>
-          <div className="flex flex-wrap justify-center gap-2">
-            {memberships.map((membership) => (
-              <span
-                key={membership}
-                className="px-3.5 py-1.5 text-xs font-medium rounded-xl bg-secondary/50 text-foreground border border-border/50 hover:border-primary/40 transition-colors"
-              >
-                {membership}
-              </span>
-            ))}
-          </div>
+          <SpotlightCard className="p-6 sm:p-8 text-center">
+            <h3 className="text-xs font-bold text-foreground mb-4 uppercase tracking-wider font-mono text-primary">
+              Professional Society Memberships
+            </h3>
+            <div className="flex flex-wrap justify-center gap-2">
+              {memberships.map((membership) => (
+                <motion.span
+                  key={membership}
+                  whileHover={{ scale: 1.04 }}
+                  className="px-3.5 py-1.5 text-xs font-medium rounded-xl bg-secondary/50 text-foreground border border-border/50 hover:border-primary/40 transition-colors cursor-default"
+                >
+                  {membership}
+                </motion.span>
+              ))}
+            </div>
+          </SpotlightCard>
         </motion.div>
       </div>
     </section>

@@ -9,6 +9,7 @@ import {
   Terminal,
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { SpotlightCard } from './animations/SpotlightCard';
 
 const ugCourses = [
   {
@@ -83,48 +84,50 @@ const CourseCard = ({
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.4, delay: index * 0.08 }}
-    className="p-6 rounded-3xl glass border border-border/70 hover:border-primary/40 hover:shadow-card-hover transition-all duration-300 group flex flex-col justify-between h-full"
+    className="flex"
   >
-    <div>
-      <div className="flex items-start justify-between gap-3 mb-3">
-        <span className="text-xs font-mono font-bold text-primary px-3 py-1 rounded-full bg-secondary/80 border border-border/60">
-          {course.code}
-        </span>
-        <span className="text-[11px] font-mono text-muted-foreground">Semester Core</span>
-      </div>
+    <SpotlightCard className="p-6 flex flex-col justify-between h-full w-full group hover:border-primary/40 transition-all duration-300">
+      <div>
+        <div className="flex items-start justify-between gap-3 mb-3">
+          <span className="text-xs font-mono font-bold text-primary px-3 py-1 rounded-full bg-secondary/80 border border-border/60">
+            {course.code}
+          </span>
+          <span className="text-[11px] font-mono text-muted-foreground">Semester Core</span>
+        </div>
 
-      <h4 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
-        {course.name}
-      </h4>
-      <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
-        {course.description}
-      </p>
+        <h4 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+          {course.name}
+        </h4>
+        <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+          {course.description}
+        </p>
 
-      {/* Core Topics */}
-      <div className="mt-4 pt-3 border-t border-border/40">
-        <span className="text-[10px] font-mono uppercase text-muted-foreground block mb-1.5">
-          Key Syllabus Topics:
-        </span>
-        <div className="flex flex-wrap gap-1.5">
-          {course.topics.map((t) => (
-            <span
-              key={t}
-              className="text-[11px] px-2.5 py-0.5 rounded-lg bg-secondary/50 text-foreground/80 font-mono"
-            >
-              {t}
-            </span>
-          ))}
+        {/* Core Topics */}
+        <div className="mt-4 pt-3 border-t border-border/40">
+          <span className="text-[10px] font-mono uppercase text-muted-foreground block mb-1.5">
+            Key Syllabus Topics:
+          </span>
+          <div className="flex flex-wrap gap-1.5">
+            {course.topics.map((t) => (
+              <span
+                key={t}
+                className="text-[11px] px-2.5 py-0.5 rounded-lg bg-secondary/50 text-foreground/80 font-mono"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
 
-    {/* Lab Tools */}
-    <div className="mt-4 pt-3 border-t border-border/40 flex items-center justify-between">
-      <div className="flex items-center gap-1.5 text-[11px] font-mono text-muted-foreground">
-        <Terminal className="w-3.5 h-3.5 text-primary" />
-        <span>Tools: {course.tools.join(', ')}</span>
+      {/* Lab Tools */}
+      <div className="mt-4 pt-3 border-t border-border/40 flex items-center justify-between">
+        <div className="flex items-center gap-1.5 text-[11px] font-mono text-muted-foreground">
+          <Terminal className="w-3.5 h-3.5 text-primary" />
+          <span>Tools: {course.tools.join(', ')}</span>
+        </div>
       </div>
-    </div>
+    </SpotlightCard>
   </motion.div>
 );
 
@@ -134,21 +137,21 @@ export const Teaching: React.FC = () => {
 
   return (
     <section id="teaching" className="section-padding relative overflow-hidden bg-card/20">
-      <div className="max-w-6xl mx-auto px-6 relative z-10" ref={ref}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10" ref={ref}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-12 sm:mb-14"
         >
-          <span className="text-primary text-sm font-medium uppercase tracking-widest font-mono">
+          <span className="text-primary text-xs sm:text-sm font-medium uppercase tracking-widest font-mono">
             Academic Pedagogy & Mentorship
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-2.5">
             Teaching & <span className="text-gradient">Coursework</span>
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm text-muted-foreground mt-3 max-w-2xl mx-auto">
             Delivering hands-on curriculum across undergraduate and postgraduate computer science programs at ITM University and IIIT Naya Raipur.
           </p>
         </motion.div>
@@ -161,25 +164,25 @@ export const Teaching: React.FC = () => {
           className="max-w-6xl mx-auto"
         >
           <Tabs defaultValue="pg" className="w-full">
-            <TabsList className="w-full max-w-md mx-auto grid grid-cols-2 mb-10 bg-secondary/60 border border-border p-1 rounded-2xl">
+            <TabsList className="w-full max-w-md mx-auto grid grid-cols-2 mb-8 sm:mb-10 bg-secondary/60 border border-border p-1 rounded-full">
               <TabsTrigger
                 value="pg"
-                className="flex items-center justify-center gap-2 rounded-xl text-xs font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all"
+                className="flex items-center justify-center gap-2 rounded-full text-xs font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all"
               >
                 <GraduationCap className="w-4 h-4" />
-                Postgraduate (M.Tech / Ph.D.)
+                Postgraduate
               </TabsTrigger>
               <TabsTrigger
                 value="ug"
-                className="flex items-center justify-center gap-2 rounded-xl text-xs font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all"
+                className="flex items-center justify-center gap-2 rounded-full text-xs font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all"
               >
                 <BookOpen className="w-4 h-4" />
-                Undergraduate (B.Tech)
+                Undergraduate
               </TabsTrigger>
             </TabsList>
 
             <TabsContent value="pg" className="mt-0">
-              <div className="grid md:grid-cols-2 gap-6 items-stretch">
+              <div className="grid md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
                 {pgCourses.map((course, index) => (
                   <CourseCard key={course.code} course={course} index={index} />
                 ))}
@@ -187,7 +190,7 @@ export const Teaching: React.FC = () => {
             </TabsContent>
 
             <TabsContent value="ug" className="mt-0">
-              <div className="grid md:grid-cols-2 gap-6 items-stretch">
+              <div className="grid md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
                 {ugCourses.map((course, index) => (
                   <CourseCard key={course.code} course={course} index={index} />
                 ))}
@@ -201,30 +204,34 @@ export const Teaching: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="max-w-6xl mx-auto mt-14 p-8 rounded-3xl glass border border-border/80 shadow-xl relative overflow-hidden"
+          className="max-w-6xl mx-auto mt-12 sm:mt-14"
         >
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-2 text-center md:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                <Sparkles className="w-3.5 h-3.5" />
-                RESEARCH OPPORTUNITIES OPEN
+          <SpotlightCard className="p-6 sm:p-8 shadow-xl">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="space-y-2 text-center md:text-left">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  RESEARCH OPPORTUNITIES OPEN
+                </div>
+                <h3 className="text-lg sm:text-2xl font-bold text-foreground">
+                  Looking for Research Interns & Ph.D. / M.Tech Collaborators
+                </h3>
+                <p className="text-xs sm:text-sm text-muted-foreground max-w-xl">
+                  Interested in publishing high-impact papers in Beyond 5G/6G Networks, SDN Emulation (Mininet), Post-Quantum Cryptography, or Edge AI? Reach out with your CV and research statement.
+                </p>
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                Looking for Research Interns & Ph.D. / M.Tech Collaborators
-              </h3>
-              <p className="text-sm text-muted-foreground max-w-xl">
-                Interested in publishing high-impact papers in Beyond 5G/6G Networks, SDN Emulation (Mininet), Post-Quantum Cryptography, or Edge AI? Reach out with your CV and research statement.
-              </p>
-            </div>
 
-            <a
-              href="mailto:amar@iiitnr.edu.in?subject=Research%20Collaboration%20Inquiry%20-%20Dr.%20Amar%20Sinha"
-              className="px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-all flex items-center gap-2 shrink-0 shadow-sm"
-            >
-              <Send className="w-4 h-4" />
-              <span>Apply for Research Mentorship</span>
-            </a>
-          </div>
+              <motion.a
+                href="mailto:amar@iiitnr.edu.in?subject=Research%20Collaboration%20Inquiry%20-%20Dr.%20Amar%20Sinha"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+                className="px-5 sm:px-6 py-3 rounded-2xl bg-primary text-primary-foreground font-semibold text-xs sm:text-sm hover:opacity-90 transition-all flex items-center gap-2 shrink-0 shadow-glow"
+              >
+                <Send className="w-4 h-4" />
+                <span>Apply for Mentorship</span>
+              </motion.a>
+            </div>
+          </SpotlightCard>
         </motion.div>
       </div>
     </section>

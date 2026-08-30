@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -154,7 +154,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Space Grotesk', 'Plus Jakarta Sans', system-ui, sans-serif;
     @apply font-bold tracking-tight text-foreground;
   }
 
@@ -164,6 +164,10 @@
 }
 
 @layer utilities {
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
   .text-gradient {
     @apply bg-clip-text text-transparent;
     background-image: var(--gradient-primary);
@@ -239,6 +243,12 @@
                 inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
   }
 
+  /* Shimmer Specular Light Animation */
+  .animate-shimmer {
+    background-size: 200% auto;
+    animation: shimmer 4s linear infinite;
+  }
+
   .section-padding {
     @apply py-20 md:py-24 lg:py-28;
   }
@@ -258,7 +268,13 @@
   }
 }
 
-/* Fluid Drift Animation */
+/* Fluid Animations */
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
 @keyframes fluid-drift-1 {
   0%, 100% {
     transform: translate(0px, 0px) scale(1);
