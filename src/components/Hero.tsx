@@ -21,7 +21,6 @@ import { SpotlightCard } from './animations/SpotlightCard';
 import { NetworkBackground } from './animations/NetworkBackground';
 import { DoodleUnderline } from './doodles/DoodleUnderline';
 import { DoodleArrow } from './doodles/DoodleArrow';
-import { DoodleSparkle } from './doodles/DoodleSparkle';
 
 const socialLinks = [
   { icon: Mail, href: 'mailto:amar@iiitnr.edu.in', label: 'Email' },
@@ -70,12 +69,9 @@ export const Hero: React.FC = () => {
 
             {/* Name & Academic Title with Doodle Underline */}
             <div>
-              <div className="flex items-center justify-center lg:justify-start gap-2">
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.15] font-display">
-                  Amar Sinha
-                </h1>
-                <DoodleSparkle size={26} className="text-primary animate-pulse hidden sm:inline-block" />
-              </div>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.15] font-display">
+                Amar Sinha
+              </h1>
 
               <div className="relative inline-block mt-2 sm:mt-2.5">
                 <p className="text-base sm:text-xl font-semibold text-primary leading-snug">

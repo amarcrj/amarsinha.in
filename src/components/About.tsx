@@ -6,7 +6,6 @@ import scholarData from '@/data/scholarData.json';
 import { SpotlightCard } from './animations/SpotlightCard';
 import { CountUp } from './animations/CountUp';
 import { DoodleUnderline } from './doodles/DoodleUnderline';
-import { DoodleSparkle } from './doodles/DoodleSparkle';
 
 const stats = [
   {
@@ -84,7 +83,6 @@ export const About: React.FC = () => {
           className="text-center mb-12 sm:mb-14"
         >
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono liquid-pill text-primary mb-2.5">
-            <DoodleSparkle size={14} className="text-primary" />
             <span>RESEARCH PHILOSOPHY & PROFILE</span>
           </div>
           
