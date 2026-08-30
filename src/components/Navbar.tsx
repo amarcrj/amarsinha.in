@@ -6,7 +6,6 @@ import { ThemeToggle } from './ThemeToggle';
 import scholarData from '@/data/scholarData.json';
 
 const navLinks = [
-  { name: 'News', href: '#news' },
   { name: 'About', href: '#about' },
   { name: 'Publications', href: '#publications' },
   { name: 'Research Systems', href: '#research' },

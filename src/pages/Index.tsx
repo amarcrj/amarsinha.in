@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
-import { NewsUpdates } from '@/components/NewsUpdates';
 import { About } from '@/components/About';
 import { TestbedShowcase } from '@/components/research/TestbedShowcase';
 import { Publications } from '@/components/Publications';
@@ -37,7 +36,6 @@ const Index: React.FC = () => {
 
       <Navbar />
       <Hero />
-      <NewsUpdates />
       <About />
 
       {/* Publications & Academic Papers */}

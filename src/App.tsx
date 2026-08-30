@@ -21,7 +21,6 @@ const App = () => (
         <HashRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/news" element={<Index />} />
             <Route path="/about" element={<Index />} />
             <Route path="/research" element={<Index />} />
             <Route path="/publications" element={<Index />} />
