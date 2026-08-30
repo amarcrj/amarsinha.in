@@ -2,20 +2,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  ArrowUp,
   GraduationCap,
   FileText,
   Github,
   Linkedin,
   Mail,
+  Award,
+  Sparkles,
+  BookOpen,
 } from 'lucide-react';
 import scholarData from '@/data/scholarData.json';
 
 export const Footer: React.FC = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const navLinks = [
     { label: 'About', href: '#about' },
     { label: 'Publications', href: '#publications' },
@@ -27,119 +25,139 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative border-t border-border/80 bg-card/40 backdrop-blur-xl py-6 sm:py-8 overflow-hidden">
+    <footer className="relative border-t border-border/80 bg-card/40 backdrop-blur-xl py-10 sm:py-12 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         
-        {/* Main Flex Bar: Info + Socials + Back to Top */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 pb-5 sm:pb-6 border-b border-border/50">
+        {/* Tier 1: Brand, Mission & Social Links */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 pb-8 border-b border-border/50 text-center lg:text-left">
           
-          {/* Brand & Designation */}
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center sm:text-left">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
-              <span className="font-display font-bold text-base text-foreground tracking-tight">
+          {/* Identity & Research Mission */}
+          <div className="space-y-2 max-w-lg">
+            <div className="flex items-center justify-center lg:justify-start gap-2.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+              <span className="font-display font-bold text-lg text-foreground tracking-tight">
                 Amar Sinha
               </span>
+              <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
+                Ph.D. Fellow
+              </span>
             </div>
-            <span className="hidden sm:inline text-border font-mono">|</span>
-            <p className="text-xs text-muted-foreground">
-              Assistant Professor @ ITM University • Ph.D. Researcher @ IIIT-NR
+
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              Assistant Professor at <strong className="text-foreground font-semibold">ITM University Raipur</strong> & Ph.D. Researcher at <strong className="text-foreground font-semibold">Dr. SPM IIIT Naya Raipur</strong>. Advancing Beyond 5G/6G Networks, SDN Emulation, and Applied Edge Intelligence.
             </p>
           </div>
 
-          {/* Social Icons & Back to Top in One Clean Row */}
-          <div className="flex items-center gap-2 shrink-0">
+          {/* Social & Academic Connect Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2">
             <motion.a
               href={scholarData.profile.scholarUrl}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.08 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 rounded-xl liquid-pill text-muted-foreground hover:text-primary transition-colors"
-              title="Google Scholar"
+              className="px-3.5 py-2 rounded-xl liquid-pill text-foreground hover:text-primary transition-all flex items-center gap-2 text-xs font-semibold"
+              title="Google Scholar Profile"
             >
-              <GraduationCap className="w-3.5 h-3.5" />
+              <GraduationCap className="w-4 h-4 text-primary" />
+              <span>Scholar ({scholarData.metrics.totalCitations})</span>
             </motion.a>
 
             <motion.a
               href="https://linkedin.com/in/amarcrj"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.08 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 rounded-xl liquid-pill text-muted-foreground hover:text-primary transition-colors"
-              title="LinkedIn"
+              className="px-3.5 py-2 rounded-xl liquid-pill text-foreground hover:text-primary transition-all flex items-center gap-2 text-xs font-semibold"
+              title="LinkedIn Profile"
             >
-              <Linkedin className="w-3.5 h-3.5" />
+              <Linkedin className="w-4 h-4 text-primary" />
+              <span>LinkedIn</span>
             </motion.a>
 
             <motion.a
               href="https://github.com/amarcrj"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.08 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 rounded-xl liquid-pill text-muted-foreground hover:text-primary transition-colors"
-              title="GitHub"
+              className="px-3.5 py-2 rounded-xl liquid-pill text-foreground hover:text-primary transition-all flex items-center gap-2 text-xs font-semibold"
+              title="GitHub Profile"
             >
-              <Github className="w-3.5 h-3.5" />
+              <Github className="w-4 h-4 text-primary" />
+              <span>GitHub</span>
             </motion.a>
 
             <motion.a
               href="mailto:amar@iiitnr.edu.in"
-              whileHover={{ scale: 1.08 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 rounded-xl liquid-pill text-muted-foreground hover:text-primary transition-colors"
-              title="Email"
+              className="px-3.5 py-2 rounded-xl liquid-pill text-foreground hover:text-primary transition-all flex items-center gap-2 text-xs font-semibold"
+              title="Email Amar Sinha"
             >
-              <Mail className="w-3.5 h-3.5" />
+              <Mail className="w-4 h-4 text-primary" />
+              <span>Email</span>
             </motion.a>
 
             <motion.a
               href="/AMAR_CV.pdf"
               target="_blank"
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.95 }}
-              className="p-2 rounded-xl liquid-pill text-muted-foreground hover:text-primary transition-colors"
-              title="Curriculum Vitae"
-            >
-              <FileText className="w-3.5 h-3.5" />
-            </motion.a>
-
-            {/* Back to Top */}
-            <motion.button
-              onClick={scrollToTop}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="ml-1 px-3 py-1.5 rounded-xl glass border border-border hover:border-primary/40 text-foreground hover:text-primary text-xs font-semibold flex items-center gap-1.5 transition-all"
-              title="Scroll to top"
+              className="px-3.5 py-2 rounded-xl glass border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-all flex items-center gap-2 text-xs font-semibold"
+              title="Curriculum Vitae"
             >
-              <span className="text-[11px]">Top</span>
-              <ArrowUp className="w-3 h-3" />
-            </motion.button>
+              <FileText className="w-4 h-4" />
+              <span>CV</span>
+            </motion.a>
           </div>
 
         </div>
 
-        {/* Sub-bar: Navigation Links & Copyright */}
-        <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
+        {/* Tier 2: Academic Metrics Strip & Institutional Affiliations */}
+        <div className="py-5 flex flex-wrap items-center justify-between gap-4 border-b border-border/40 text-xs text-muted-foreground">
           
-          {/* Quick inline navigation pills */}
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5">
+          {/* Quick Metrics Bar */}
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-4 font-mono text-[11px] sm:text-xs">
+            <span className="flex items-center gap-1.5 text-foreground font-semibold">
+              <Sparkles className="w-3.5 h-3.5 text-primary" />
+              <span>IIITB COMET Grant</span>
+            </span>
+            <span className="text-border">•</span>
+            <span>{scholarData.metrics.publicationsCount}+ Peer-Reviewed Works</span>
+            <span className="text-border">•</span>
+            <span>{scholarData.metrics.patentCount} Patent Published</span>
+            <span className="text-border">•</span>
+            <span>IEEE Student Branch Chair</span>
+          </div>
+
+          {/* Institutional Affiliation */}
+          <div className="text-[11px] font-mono text-muted-foreground text-center lg:text-right">
+            Dr. SPM IIIT Naya Raipur & ITM University Raipur
+          </div>
+
+        </div>
+
+        {/* Tier 3: Navigation Links & Copyright */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+          
+          {/* Quick Section Jump Links */}
+          <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-5 gap-y-2">
             {navLinks.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-[11px] sm:text-xs text-muted-foreground hover:text-primary transition-colors"
+                className="text-xs text-muted-foreground hover:text-primary transition-colors"
               >
                 {item.label}
               </a>
             ))}
           </div>
 
-          {/* Copyright text */}
-          <p className="text-[11px] text-muted-foreground/80 text-center sm:text-right">
-            © {new Date().getFullYear()} Amar Sinha • All rights reserved.
+          {/* Copyright Notice */}
+          <p className="text-xs text-muted-foreground/80 text-center sm:text-right">
+            © {new Date().getFullYear()} Amar Sinha. All rights reserved.
           </p>
 
         </div>
