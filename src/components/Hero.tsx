@@ -36,15 +36,10 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] flex items-center justify-center bg-gradient-hero overflow-hidden pt-24 sm:pt-28 pb-16"
+      className="relative min-h-[92vh] flex items-center justify-center overflow-hidden pt-24 sm:pt-28 pb-16"
     >
       {/* Interactive Network Mesh Background */}
       <NetworkBackground />
-
-      {/* Liquid Glass Ambient Fluid Blobs (Dynamic Refraction Layer) */}
-      <div className="absolute top-1/4 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none animate-fluid-1" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 sm:w-[28rem] h-80 sm:h-[28rem] bg-indigo-500/15 rounded-full blur-[120px] pointer-events-none animate-fluid-2" />
-      <div className="absolute top-2/3 left-1/2 -translate-x-1/2 w-64 sm:w-80 h-64 sm:h-80 bg-violet-500/10 rounded-full blur-[90px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 w-full">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
