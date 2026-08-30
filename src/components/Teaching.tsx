@@ -222,7 +222,7 @@ export const Teaching: React.FC = () => {
               </div>
 
               <motion.a
-                href="mailto:amar@iiitnr.edu.in?subject=Research%20Collaboration%20Inquiry%20-%20Dr.%20Amar%20Sinha"
+                href="mailto:amar@iiitnr.edu.in?subject=Research%20Collaboration%20Inquiry%20-%20Amar%20Sinha"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
                 className="px-5 sm:px-6 py-3 rounded-2xl bg-primary text-primary-foreground font-semibold text-xs sm:text-sm hover:opacity-90 transition-all flex items-center gap-2 shrink-0 shadow-glow"
