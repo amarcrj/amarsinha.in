@@ -12,7 +12,6 @@ import { Teaching } from '@/components/Teaching';
 import { Leadership } from '@/components/Leadership';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
-import { CommandPalette } from '@/components/CommandPalette';
 import { AuraBackground } from '@/components/animations/AuraBackground';
 
 const Index: React.FC = () => {
@@ -50,9 +49,6 @@ const Index: React.FC = () => {
       <Leadership />
       <Contact />
       <Footer />
-
-      {/* Cmd+K Command Palette */}
-      <CommandPalette />
     </AuraBackground>
   );
 };
