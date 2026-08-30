@@ -1,8 +1,10 @@
 // src/components/About.tsx
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { GraduationCap, Award, Users, BookOpen, Network, Activity, ShieldCheck, Cpu, ArrowRight } from 'lucide-react';
+import { GraduationCap, Award, Users, BookOpen, Network, Activity, ShieldCheck, Cpu } from 'lucide-react';
 import scholarData from '@/data/scholarData.json';
+import { SpotlightCard } from './animations/SpotlightCard';
+import { CountUp } from './animations/CountUp';
 
 const stats = [
   {
@@ -10,24 +12,31 @@ const stats = [
     value: 'Ph.D.',
     label: 'Pursuing @ IIIT-NR',
     sub: 'Beyond 5G & SDN Networks',
+    isNumber: false,
   },
   {
     icon: BookOpen,
-    value: `${scholarData.metrics.publicationsCount}+`,
+    value: scholarData.metrics.publicationsCount,
+    suffix: '+',
     label: 'Peer-Reviewed Works',
     sub: `${scholarData.metrics.totalCitations} Google Scholar Citations`,
+    isNumber: true,
   },
   {
     icon: Award,
-    value: '1',
+    value: 1,
     label: 'Patents Published',
     sub: 'Post-Quantum Key Management',
+    isNumber: true,
   },
   {
     icon: Users,
-    value: '+40%',
+    value: 40,
+    prefix: '+',
+    suffix: '%',
     label: 'IEEE Branch Growth',
     sub: 'Student Branch Chair, IIIT-NR',
+    isNumber: true,
   },
 ];
 
@@ -89,7 +98,7 @@ export const About: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-7 flex"
           >
-            <div className="p-6 sm:p-8 rounded-3xl glass border border-border/70 shadow-lg flex flex-col justify-between w-full space-y-4">
+            <SpotlightCard className="p-6 sm:p-8 flex flex-col justify-between w-full space-y-4">
               <div className="space-y-3.5 sm:space-y-4">
                 <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                   I am an Assistant Professor at <span className="text-foreground font-semibold">ITM University Raipur</span> and a Ph.D. Researcher at <span className="text-foreground font-semibold">Dr. Shyama Prasad Mukherjee IIIT Naya Raipur</span>, specializing in <span className="text-foreground font-semibold">Beyond 5G (B5G) / 6G Networks</span> and <span className="text-foreground font-semibold">Software-Defined Networking (SDN)</span>.
@@ -128,7 +137,7 @@ export const About: React.FC = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </SpotlightCard>
           </motion.div>
 
           {/* Stats Grid */}
@@ -141,26 +150,35 @@ export const About: React.FC = () => {
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                className="p-4 sm:p-6 rounded-3xl glass border border-border/70 hover:border-primary/40 hover:shadow-card-hover transition-all duration-300 group flex flex-col justify-between"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                whileHover={{ y: -4 }}
+                className="flex"
               >
-                <div>
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-secondary/80 text-primary flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                    <stat.icon className="w-5 h-5" />
+                <SpotlightCard className="p-4 sm:p-6 w-full flex flex-col justify-between group">
+                  <div>
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-secondary/80 text-primary flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                      <stat.icon className="w-5 h-5" />
+                    </div>
+                    <div className="text-xl sm:text-3xl font-bold text-foreground mb-0.5">
+                      {stat.isNumber ? (
+                        <CountUp
+                          end={Number(stat.value)}
+                          prefix={stat.prefix}
+                          suffix={stat.suffix}
+                        />
+                      ) : (
+                        stat.value
+                      )}
+                    </div>
+                    <div className="text-xs font-semibold text-foreground/90 leading-snug">
+                      {stat.label}
+                    </div>
                   </div>
-                  <div className="text-xl sm:text-3xl font-bold text-foreground mb-0.5">
-                    {stat.value}
+                  <div className="text-[10px] sm:text-[11px] text-muted-foreground font-mono mt-2.5 pt-2 border-t border-border/30 truncate">
+                    {stat.sub}
                   </div>
-                  <div className="text-xs font-semibold text-foreground/90 leading-snug">
-                    {stat.label}
-                  </div>
-                </div>
-                <div className="text-[10px] sm:text-[11px] text-muted-foreground font-mono mt-2.5 pt-2 border-t border-border/30 truncate">
-                  {stat.sub}
-                </div>
+                </SpotlightCard>
               </motion.div>
             ))}
           </motion.div>
@@ -183,10 +201,10 @@ export const About: React.FC = () => {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {researchPillars.map((pillar, i) => (
-              <div
+            {researchPillars.map((pillar) => (
+              <SpotlightCard
                 key={pillar.title}
-                className="p-5 rounded-3xl glass border border-border/70 hover:border-primary/40 hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
+                className="p-5 flex flex-col justify-between group hover:border-primary/40 transition-all duration-300"
               >
                 <div>
                   <div className="w-10 h-10 rounded-2xl bg-secondary text-primary flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
@@ -202,7 +220,7 @@ export const About: React.FC = () => {
                     {pillar.desc}
                   </p>
                 </div>
-              </div>
+              </SpotlightCard>
             ))}
           </div>
         </motion.div>

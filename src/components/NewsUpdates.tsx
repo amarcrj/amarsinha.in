@@ -1,8 +1,8 @@
 // src/components/NewsUpdates.tsx
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Bell, Sparkles, FileText, Award, Calendar, ExternalLink, ArrowRight } from 'lucide-react';
-import scholarData from '@/data/scholarData.json';
+import { Sparkles, Calendar, ArrowRight } from 'lucide-react';
+import { SpotlightCard } from './animations/SpotlightCard';
 
 interface NewsItem {
   id: string;
@@ -70,7 +70,7 @@ export const NewsUpdates: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4"
+          className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12 gap-4"
         >
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono liquid-pill text-primary mb-3">
@@ -81,53 +81,55 @@ export const NewsUpdates: React.FC = () => {
               Recent News & <span className="text-gradient">Milestones</span>
             </h2>
           </div>
-          <p className="text-sm text-muted-foreground max-w-md">
+          <p className="text-xs sm:text-sm text-muted-foreground max-w-md">
             Key announcements, recent peer-reviewed publications, patent publications, and leadership activities.
           </p>
         </motion.div>
 
         {/* News Grid */}
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
           {newsItems.map((item, index) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.1 * index }}
-              className="p-6 rounded-3xl glass border border-border/70 hover:border-primary/40 hover:shadow-card-hover transition-all duration-300 group flex flex-col justify-between"
+              className="flex"
             >
-              <div>
-                <div className="flex items-center justify-between gap-3 mb-3">
-                  <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono border font-medium ${item.badgeColor}`}>
-                    {item.badge}
-                  </span>
-                  <span className="text-xs font-mono text-muted-foreground flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-primary" />
-                    {item.date}
-                  </span>
+              <SpotlightCard className="p-5 sm:p-6 w-full flex flex-col justify-between group hover:border-primary/40 transition-all duration-300">
+                <div>
+                  <div className="flex items-center justify-between gap-3 mb-3">
+                    <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono border font-medium ${item.badgeColor}`}>
+                      {item.badge}
+                    </span>
+                    <span className="text-xs font-mono text-muted-foreground flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5 text-primary" />
+                      {item.date}
+                    </span>
+                  </div>
+
+                  <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
 
-                <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-
-              {item.link && (
-                <div className="mt-4 pt-3 border-t border-border/40">
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
-                  >
-                    <span>{item.linkText || 'Read More'}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              )}
+                {item.link && (
+                  <div className="mt-4 pt-3 border-t border-border/40">
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
+                    >
+                      <span>{item.linkText || 'Read More'}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                )}
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>
