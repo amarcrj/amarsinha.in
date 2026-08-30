@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
+import { NewsUpdates } from '@/components/NewsUpdates';
 import { About } from '@/components/About';
 import { TestbedShowcase } from '@/components/research/TestbedShowcase';
 import { Publications } from '@/components/Publications';
@@ -36,6 +37,7 @@ const Index: React.FC = () => {
 
       <Navbar />
       <Hero />
+      <NewsUpdates />
       <About />
 
       {/* Publications & Academic Papers */}
@@ -43,7 +45,7 @@ const Index: React.FC = () => {
 
       {/* Experimental Architecture & Systems */}
       <section id="research" className="section-padding relative overflow-hidden bg-card/15 border-y border-border/40">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <TestbedShowcase />
         </div>
       </section>

@@ -6,6 +6,7 @@ import { ThemeToggle } from './ThemeToggle';
 import scholarData from '@/data/scholarData.json';
 
 const navLinks = [
+  { name: 'News', href: '#news' },
   { name: 'About', href: '#about' },
   { name: 'Publications', href: '#publications' },
   { name: 'Research Systems', href: '#research' },
@@ -21,7 +22,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      setIsScrolled(window.scrollY > 25);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -37,7 +38,7 @@ export const Navbar = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-3.5">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3.5">
         <div className="flex items-center justify-between">
           <motion.a
             href="#"
@@ -49,7 +50,7 @@ export const Navbar = () => {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-5">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -60,7 +61,7 @@ export const Navbar = () => {
               </a>
             ))}
 
-            <div className="flex items-center gap-3 pl-3 border-l border-border/60">
+            <div className="flex items-center gap-2.5 pl-3 border-l border-border/60">
               <ThemeToggle />
               <motion.a
                 href={scholarData.profile.scholarUrl}
@@ -88,7 +89,7 @@ export const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center gap-3 lg:hidden">
+          <div className="flex items-center gap-2.5 lg:hidden">
             <ThemeToggle />
             <button
               className="p-2 rounded-xl glass text-foreground"
@@ -110,7 +111,7 @@ export const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-background/95 backdrop-blur-2xl border-t border-border/80 shadow-2xl"
           >
-            <div className="container mx-auto px-6 py-5 flex flex-col gap-3">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 py-5 flex flex-col gap-2.5">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -126,7 +127,7 @@ export const Navbar = () => {
                   href={scholarData.profile.scholarUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 py-2 text-xs font-semibold glass border border-border/80 text-foreground rounded-xl text-center flex items-center justify-center gap-1.5"
+                  className="flex-1 py-2.5 text-xs font-semibold glass border border-border/80 text-foreground rounded-xl text-center flex items-center justify-center gap-1.5"
                 >
                   <GraduationCap className="w-3.5 h-3.5 text-primary" />
                   <span>Google Scholar</span>
@@ -134,7 +135,7 @@ export const Navbar = () => {
                 <a
                   href="/AMAR_CV.pdf"
                   target="_blank"
-                  className="flex-1 py-2 text-xs font-semibold bg-primary text-primary-foreground rounded-xl text-center"
+                  className="flex-1 py-2.5 text-xs font-semibold bg-primary text-primary-foreground rounded-xl text-center"
                 >
                   Resume
                 </a>

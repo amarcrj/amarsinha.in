@@ -73,6 +73,14 @@ export const CommandPalette: React.FC = () => {
 
   const commands: CommandItem[] = [
     {
+      id: 'nav-news',
+      title: 'Recent News & Announcements',
+      category: 'Navigation',
+      icon: Zap,
+      action: () => scrollToSection('news'),
+      badge: 'Latest',
+    },
+    {
       id: 'nav-pubs',
       title: 'Explore Publications & Patents',
       category: 'Navigation',
