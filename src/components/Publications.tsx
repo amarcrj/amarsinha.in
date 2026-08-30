@@ -19,6 +19,8 @@ import { useToast } from '@/hooks/use-toast';
 import scholarData from '@/data/scholarData.json';
 import { SpotlightCard } from './animations/SpotlightCard';
 import { CountUp } from './animations/CountUp';
+import { DoodleUnderline } from './doodles/DoodleUnderline';
+import { DoodleSparkle } from './doodles/DoodleSparkle';
 
 type CategoryFilter = 'All' | 'B5G & SDN' | 'AI/ML & Healthcare' | 'Quantum & Security' | 'IoT & Healthcare';
 
@@ -93,11 +95,17 @@ export const Publications: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 sm:mb-12"
         >
-          <span className="text-primary text-xs sm:text-sm font-medium uppercase tracking-widest font-mono">
-            Peer-Reviewed Contributions
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-2.5">
-            Publications & <span className="text-gradient">Patents</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono liquid-pill text-primary mb-2.5">
+            <DoodleSparkle size={14} className="text-primary" />
+            <span>PEER-REVIEWED CONTRIBUTIONS</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-2 font-display">
+            Publications &{' '}
+            <span className="relative inline-block text-gradient">
+              Patents
+              <DoodleUnderline color="hsl(var(--primary))" />
+            </span>
           </h2>
           <p className="text-xs sm:text-sm text-muted-foreground mt-3 max-w-2xl mx-auto">
             Contributing to Beyond 5G networks, Software-Defined Networking, AI/ML, and Post-Quantum Security with publications in IEEE & Springer venues.
@@ -119,7 +127,7 @@ export const Publications: React.FC = () => {
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <h3 className="text-sm sm:text-base font-bold text-foreground">Google Scholar Profile</h3>
+                    <h3 className="text-sm sm:text-base font-bold text-foreground font-display">Google Scholar Profile</h3>
                     <span className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                       Verified
                     </span>
@@ -132,21 +140,21 @@ export const Publications: React.FC = () => {
 
               <div className="flex flex-wrap items-center justify-between md:justify-end gap-5 sm:gap-8 w-full md:w-auto text-center border-t md:border-t-0 pt-3.5 md:pt-0 border-border/50">
                 <div>
-                  <div className="text-2xl sm:text-3xl font-bold text-foreground">
+                  <div className="text-2xl sm:text-3xl font-bold text-foreground font-display">
                     <CountUp end={scholarData.metrics.totalCitations} />
                   </div>
                   <div className="text-[10px] sm:text-[11px] text-muted-foreground font-mono">Citations</div>
                 </div>
                 <div className="w-px h-8 bg-border hidden sm:block" />
                 <div>
-                  <div className="text-2xl sm:text-3xl font-bold text-foreground">
+                  <div className="text-2xl sm:text-3xl font-bold text-foreground font-display">
                     <CountUp end={scholarData.metrics.hIndex} />
                   </div>
                   <div className="text-[10px] sm:text-[11px] text-muted-foreground font-mono">h-index</div>
                 </div>
                 <div className="w-px h-8 bg-border hidden sm:block" />
                 <div>
-                  <div className="text-2xl sm:text-3xl font-bold text-foreground">
+                  <div className="text-2xl sm:text-3xl font-bold text-foreground font-display">
                     <CountUp end={scholarData.metrics.publicationsCount} suffix="+" />
                   </div>
                   <div className="text-[10px] sm:text-[11px] text-muted-foreground font-mono">Works</div>
@@ -266,7 +274,7 @@ export const Publications: React.FC = () => {
                           </div>
 
                           {/* Title */}
-                          <h4 className="text-base md:text-lg font-bold text-foreground group-hover:text-primary transition-colors leading-snug">
+                          <h4 className="text-base md:text-lg font-bold text-foreground group-hover:text-primary transition-colors leading-snug font-display">
                             {pub.title}
                           </h4>
 
@@ -354,7 +362,7 @@ export const Publications: React.FC = () => {
                 <div className="pt-6">
                   <div className="flex items-center gap-2 mb-3">
                     <Award className="w-5 h-5 text-primary" />
-                    <h3 className="text-lg font-bold text-foreground">Patents</h3>
+                    <h3 className="text-lg font-bold text-foreground font-display">Patents</h3>
                   </div>
 
                   <div className="space-y-3">
@@ -372,7 +380,7 @@ export const Publications: React.FC = () => {
                           </span>
                         </div>
 
-                        <h4 className="text-base md:text-lg font-bold text-foreground">{pat.title}</h4>
+                        <h4 className="text-base md:text-lg font-bold text-foreground font-display">{pat.title}</h4>
                         <p className="text-xs text-muted-foreground mt-1.5">{pat.authors}</p>
                         <p className="text-xs font-mono text-primary mt-1">{pat.number} ({pat.year})</p>
                         <p className="text-xs text-muted-foreground mt-2.5 bg-secondary/20 p-3 rounded-2xl">

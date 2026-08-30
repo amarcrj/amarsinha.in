@@ -5,6 +5,8 @@ import { GraduationCap, Award, Users, BookOpen, Network, Activity, ShieldCheck, 
 import scholarData from '@/data/scholarData.json';
 import { SpotlightCard } from './animations/SpotlightCard';
 import { CountUp } from './animations/CountUp';
+import { DoodleUnderline } from './doodles/DoodleUnderline';
+import { DoodleSparkle } from './doodles/DoodleSparkle';
 
 const stats = [
   {
@@ -81,11 +83,17 @@ export const About: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-14"
         >
-          <span className="text-primary text-xs sm:text-sm font-medium uppercase tracking-widest font-mono">
-            Research Philosophy & Academic Profile
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-2.5">
-            Pioneering Next-Gen <span className="text-gradient">Wireless Systems</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono liquid-pill text-primary mb-2.5">
+            <DoodleSparkle size={14} className="text-primary" />
+            <span>RESEARCH PHILOSOPHY & PROFILE</span>
+          </div>
+          
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-2 font-display">
+            Pioneering Next-Gen{' '}
+            <span className="relative inline-block text-gradient">
+              Wireless Systems
+              <DoodleUnderline color="hsl(var(--primary))" />
+            </span>
           </h2>
         </motion.div>
 
@@ -128,12 +136,13 @@ export const About: React.FC = () => {
                     'Post-Quantum Cryptography',
                     'O-RAN Architecture',
                   ].map((tag) => (
-                    <span
+                    <motion.span
                       key={tag}
-                      className="px-2.5 sm:px-3 py-1 text-xs font-mono rounded-xl bg-secondary/60 text-foreground border border-border/60 hover:border-primary/40 transition-colors"
+                      whileHover={{ scale: 1.05, y: -1 }}
+                      className="px-2.5 sm:px-3 py-1 text-xs font-mono rounded-xl bg-secondary/60 text-foreground border border-border/60 hover:border-primary/40 transition-colors cursor-default"
                     >
                       {tag}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </div>
@@ -160,7 +169,7 @@ export const About: React.FC = () => {
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-secondary/80 text-primary flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
                       <stat.icon className="w-5 h-5" />
                     </div>
-                    <div className="text-xl sm:text-3xl font-bold text-foreground mb-0.5">
+                    <div className="text-xl sm:text-3xl font-bold text-foreground mb-0.5 font-display">
                       {stat.isNumber ? (
                         <CountUp
                           end={Number(stat.value)}
@@ -192,7 +201,7 @@ export const About: React.FC = () => {
           className="space-y-6"
         >
           <div className="flex items-center justify-between">
-            <h3 className="text-xl sm:text-2xl font-bold text-foreground">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground font-display">
               Key Research Pillars
             </h3>
             <span className="text-xs font-mono text-muted-foreground hidden sm:block">
@@ -213,7 +222,7 @@ export const About: React.FC = () => {
                   <span className="text-[10px] font-mono text-primary font-bold uppercase tracking-wider block mb-1">
                     {pillar.tag}
                   </span>
-                  <h4 className="text-sm font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  <h4 className="text-sm font-bold text-foreground mb-2 group-hover:text-primary transition-colors font-display">
                     {pillar.title}
                   </h4>
                   <p className="text-xs text-muted-foreground leading-relaxed">

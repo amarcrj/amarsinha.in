@@ -19,6 +19,9 @@ import { CountUp } from './animations/CountUp';
 import { TiltCard } from './animations/TiltCard';
 import { SpotlightCard } from './animations/SpotlightCard';
 import { NetworkBackground } from './animations/NetworkBackground';
+import { DoodleUnderline } from './doodles/DoodleUnderline';
+import { DoodleArrow } from './doodles/DoodleArrow';
+import { DoodleSparkle } from './doodles/DoodleSparkle';
 
 const socialLinks = [
   { icon: Mail, href: 'mailto:amar@iiitnr.edu.in', label: 'Email' },
@@ -49,7 +52,7 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left"
+            className="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left relative"
           >
             {/* Liquid Pill Status Badge */}
             <motion.div
@@ -58,18 +61,28 @@ export const Hero: React.FC = () => {
               transition={{ delay: 0.1, duration: 0.5 }}
               className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-medium liquid-pill text-foreground shadow-sm max-w-full truncate"
             >
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+              </span>
               <span className="truncate">Assistant Professor @ ITM University • Ph.D. Researcher @ IIIT-NR</span>
             </motion.div>
 
-            {/* Name & Academic Title */}
+            {/* Name & Academic Title with Doodle Underline */}
             <div>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.15]">
-                Amar Sinha
-              </h1>
-              <p className="text-base sm:text-xl font-semibold text-primary mt-2 sm:mt-2.5 leading-snug">
-                Beyond 5G Networks • Software-Defined Networking • Applied AI/ML
-              </p>
+              <div className="flex items-center justify-center lg:justify-start gap-2">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.15] font-display">
+                  Amar Sinha
+                </h1>
+                <DoodleSparkle size={26} className="text-primary animate-pulse hidden sm:inline-block" />
+              </div>
+
+              <div className="relative inline-block mt-2 sm:mt-2.5">
+                <p className="text-base sm:text-xl font-semibold text-primary leading-snug">
+                  Beyond 5G Networks • Software-Defined Networking • Applied AI/ML
+                </p>
+                <DoodleUnderline color="hsl(var(--primary))" />
+              </div>
             </div>
 
             {/* Concise Bio Narrative */}
@@ -80,68 +93,79 @@ export const Hero: React.FC = () => {
             {/* 4-Card Liquid Glass Metrics Bar with Animated Counters */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-1 max-w-xl mx-auto lg:mx-0">
               <SpotlightCard className="p-3 sm:p-3.5 text-center">
-                <div className="text-xl sm:text-2xl font-bold text-foreground">
+                <div className="text-xl sm:text-2xl font-bold text-foreground font-display">
                   <CountUp end={scholarData.metrics.totalCitations} />
                 </div>
                 <div className="text-[9px] sm:text-[10px] text-muted-foreground font-mono mt-0.5 uppercase tracking-wider">Citations</div>
               </SpotlightCard>
 
               <SpotlightCard className="p-3 sm:p-3.5 text-center">
-                <div className="text-xl sm:text-2xl font-bold text-foreground">
+                <div className="text-xl sm:text-2xl font-bold text-foreground font-display">
                   <CountUp end={scholarData.metrics.hIndex} />
                 </div>
                 <div className="text-[9px] sm:text-[10px] text-muted-foreground font-mono mt-0.5 uppercase tracking-wider">h-index</div>
               </SpotlightCard>
 
               <SpotlightCard className="p-3 sm:p-3.5 text-center">
-                <div className="text-xl sm:text-2xl font-bold text-foreground">
+                <div className="text-xl sm:text-2xl font-bold text-foreground font-display">
                   <CountUp end={8} suffix="+" />
                 </div>
                 <div className="text-[9px] sm:text-[10px] text-muted-foreground font-mono mt-0.5 uppercase tracking-wider">Works</div>
               </SpotlightCard>
 
               <SpotlightCard className="p-3 sm:p-3.5 text-center">
-                <div className="text-xl sm:text-2xl font-bold text-foreground">Chair</div>
+                <div className="text-xl sm:text-2xl font-bold text-foreground font-display">Chair</div>
                 <div className="text-[9px] sm:text-[10px] text-muted-foreground font-mono mt-0.5 uppercase tracking-wider">IEEE Branch</div>
               </SpotlightCard>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 pt-2">
-              <motion.button
-                onClick={scrollToPubs}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl bg-primary text-primary-foreground font-semibold text-xs shadow-glow hover:opacity-95 transition-all flex items-center gap-2"
-              >
-                <BookOpen className="w-4 h-4" />
-                <span>Explore Publications</span>
-                <ArrowRight className="w-4 h-4" />
-              </motion.button>
+            {/* Action Buttons with Doodle Arrow Callout */}
+            <div className="relative pt-2">
+              {/* Playful Doodle Arrow pointing to publications */}
+              <div className="absolute -top-7 -right-4 sm:-right-8 hidden xl:flex items-center">
+                <DoodleArrow
+                  text="Check my research!"
+                  arrowClassName="rotate-12 w-10 h-10 -scale-x-100"
+                  textClassName="text-[11px]"
+                />
+              </div>
 
-              <motion.a
-                href={scholarData.profile.scholarUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl glass hover:bg-secondary/70 text-foreground font-semibold text-xs transition-all flex items-center gap-2"
-              >
-                <GraduationCap className="w-4 h-4 text-primary" />
-                <span>Google Scholar</span>
-                <ExternalLink className="w-3 h-3 text-muted-foreground" />
-              </motion.a>
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3">
+                <motion.button
+                  onClick={scrollToPubs}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl bg-primary text-primary-foreground font-semibold text-xs shadow-glow hover:opacity-95 transition-all flex items-center gap-2"
+                >
+                  <BookOpen className="w-4 h-4" />
+                  <span>Explore Publications</span>
+                  <ArrowRight className="w-4 h-4" />
+                </motion.button>
 
-              <motion.a
-                href="/AMAR_CV.pdf"
-                target="_blank"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl glass hover:bg-secondary/70 text-foreground font-semibold text-xs transition-all flex items-center gap-2"
-              >
-                <FileText className="w-4 h-4 text-muted-foreground" />
-                <span>Curriculum Vitae</span>
-              </motion.a>
+                <motion.a
+                  href={scholarData.profile.scholarUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl glass hover:bg-secondary/70 text-foreground font-semibold text-xs transition-all flex items-center gap-2"
+                >
+                  <GraduationCap className="w-4 h-4 text-primary" />
+                  <span>Google Scholar</span>
+                  <ExternalLink className="w-3 h-3 text-muted-foreground" />
+                </motion.a>
+
+                <motion.a
+                  href="/AMAR_CV.pdf"
+                  target="_blank"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl glass hover:bg-secondary/70 text-foreground font-semibold text-xs transition-all flex items-center gap-2"
+                >
+                  <FileText className="w-4 h-4 text-muted-foreground" />
+                  <span>Curriculum Vitae</span>
+                </motion.a>
+              </div>
             </div>
 
             {/* Social Links Pill Bar */}
