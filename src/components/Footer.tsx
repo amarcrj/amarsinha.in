@@ -8,10 +8,6 @@ import {
   Github,
   Linkedin,
   Mail,
-  BookOpen,
-  Award,
-  Network,
-  Cpu,
 } from 'lucide-react';
 import scholarData from '@/data/scholarData.json';
 
@@ -21,171 +17,133 @@ export const Footer: React.FC = () => {
   };
 
   const navLinks = [
-    { label: 'About Research', href: '#about' },
-    { label: 'Publications & Patents', href: '#publications' },
-    { label: 'SDN & Testbed Systems', href: '#research' },
-    { label: 'Experience & JRF Track', href: '#experience' },
-    { label: 'Teaching & Mentorship', href: '#teaching' },
-    { label: 'Leadership & IEEE', href: '#leadership' },
-    { label: 'Contact Information', href: '#contact' },
-  ];
-
-  const researchTopics = [
-    'Beyond 5G / 6G Mobility',
-    'OpenFlow 1.3 & Ryu SDN',
-    'Predictive Handover (iDecide)',
-    'ESP32 WiFi CSI Sensing',
-    'Post-Quantum Key Management',
-    'O-RAN Disaggregation',
+    { label: 'About', href: '#about' },
+    { label: 'Publications', href: '#publications' },
+    { label: 'Research', href: '#research' },
+    { label: 'Experience', href: '#experience' },
+    { label: 'Teaching', href: '#teaching' },
+    { label: 'Leadership', href: '#leadership' },
+    { label: 'Contact', href: '#contact' },
   ];
 
   return (
-    <footer className="relative border-t border-border/80 bg-card/25 backdrop-blur-xl pt-14 pb-8 overflow-hidden">
+    <footer className="relative border-t border-border/80 bg-card/40 backdrop-blur-xl py-6 sm:py-8 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-        {/* Top Grid: Brand, Navigation, Research Topics & Socials */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pb-12 border-b border-border/60">
+        
+        {/* Main Flex Bar: Info + Socials + Back to Top */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 pb-5 sm:pb-6 border-b border-border/50">
           
-          {/* Col 1: Bio & Institutional Identity (5 cols) */}
-          <div className="md:col-span-5 space-y-4 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-2">
-              <span className="w-2 h-2 rounded-full bg-primary" />
-              <span className="font-display font-bold text-lg text-foreground tracking-tight">
+          {/* Brand & Designation */}
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center sm:text-left">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
+              <span className="font-display font-bold text-base text-foreground tracking-tight">
                 Amar Sinha
               </span>
             </div>
-
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-sm mx-auto md:mx-0">
-              Assistant Professor at <strong className="text-foreground font-semibold">ITM University Raipur</strong> & Ph.D. Researcher at <strong className="text-foreground font-semibold">Dr. SPM IIIT Naya Raipur</strong>. Specializing in Beyond 5G/6G Networks, SDN Emulation, and Edge AI.
+            <span className="hidden sm:inline text-border font-mono">|</span>
+            <p className="text-xs text-muted-foreground">
+              Assistant Professor @ ITM University • Ph.D. Researcher @ IIIT-NR
             </p>
-
-            {/* Academic Credentials Badges */}
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-1">
-              <span className="text-[11px] font-mono px-2.5 py-1 rounded-xl liquid-pill text-foreground border border-border/80">
-                IIITB COMET Grant JRF
-              </span>
-              <span className="text-[11px] font-mono px-2.5 py-1 rounded-xl liquid-pill text-foreground border border-border/80">
-                IEEE Student Branch Chair
-              </span>
-            </div>
-
-            {/* Social / External Academic Icons */}
-            <div className="flex items-center justify-center md:justify-start gap-2 pt-2">
-              <motion.a
-                href={scholarData.profile.scholarUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-                className="p-2.5 rounded-xl liquid-pill text-muted-foreground hover:text-primary transition-colors"
-                title="Google Scholar"
-              >
-                <GraduationCap className="w-4 h-4" />
-              </motion.a>
-              <motion.a
-                href="https://linkedin.com/in/amarcrj"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-                className="p-2.5 rounded-xl liquid-pill text-muted-foreground hover:text-primary transition-colors"
-                title="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4" />
-              </motion.a>
-              <motion.a
-                href="https://github.com/amarcrj"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-                className="p-2.5 rounded-xl liquid-pill text-muted-foreground hover:text-primary transition-colors"
-                title="GitHub"
-              >
-                <Github className="w-4 h-4" />
-              </motion.a>
-              <motion.a
-                href="mailto:amar@iiitnr.edu.in"
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-                className="p-2.5 rounded-xl liquid-pill text-muted-foreground hover:text-primary transition-colors"
-                title="Email"
-              >
-                <Mail className="w-4 h-4" />
-              </motion.a>
-              <motion.a
-                href="/AMAR_CV.pdf"
-                target="_blank"
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-                className="p-2.5 rounded-xl liquid-pill text-muted-foreground hover:text-primary transition-colors"
-                title="Curriculum Vitae"
-              >
-                <FileText className="w-4 h-4" />
-              </motion.a>
-            </div>
           </div>
 
-          {/* Col 2: Navigation Sitemap (3 cols) */}
-          <div className="md:col-span-3 text-center md:text-left space-y-3">
-            <h4 className="font-display text-xs font-bold text-foreground uppercase tracking-wider">
-              Quick Navigation
-            </h4>
-            <ul className="space-y-2">
-              {navLinks.map((item) => (
-                <li key={item.label}>
-                  <a
-                    href={item.href}
-                    className="text-xs text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Social Icons & Back to Top in One Clean Row */}
+          <div className="flex items-center gap-2 shrink-0">
+            <motion.a
+              href={scholarData.profile.scholarUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-2 rounded-xl liquid-pill text-muted-foreground hover:text-primary transition-colors"
+              title="Google Scholar"
+            >
+              <GraduationCap className="w-3.5 h-3.5" />
+            </motion.a>
 
-          {/* Col 3: Key Research Topics (4 cols) */}
-          <div className="md:col-span-4 text-center md:text-left space-y-3">
-            <h4 className="font-display text-xs font-bold text-foreground uppercase tracking-wider">
-              Research Focus
-            </h4>
-            <div className="flex flex-wrap justify-center md:justify-start gap-1.5">
-              {researchTopics.map((topic) => (
-                <span
-                  key={topic}
-                  className="text-[11px] font-mono px-2.5 py-1 rounded-xl bg-secondary/50 text-muted-foreground border border-border/50"
-                >
-                  {topic}
-                </span>
-              ))}
-            </div>
-            <p className="text-[11px] text-muted-foreground pt-2">
-              Open to collaborative research, Ph.D. mentorship, and grant proposals.
-            </p>
+            <motion.a
+              href="https://linkedin.com/in/amarcrj"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-2 rounded-xl liquid-pill text-muted-foreground hover:text-primary transition-colors"
+              title="LinkedIn"
+            >
+              <Linkedin className="w-3.5 h-3.5" />
+            </motion.a>
+
+            <motion.a
+              href="https://github.com/amarcrj"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-2 rounded-xl liquid-pill text-muted-foreground hover:text-primary transition-colors"
+              title="GitHub"
+            >
+              <Github className="w-3.5 h-3.5" />
+            </motion.a>
+
+            <motion.a
+              href="mailto:amar@iiitnr.edu.in"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-2 rounded-xl liquid-pill text-muted-foreground hover:text-primary transition-colors"
+              title="Email"
+            >
+              <Mail className="w-3.5 h-3.5" />
+            </motion.a>
+
+            <motion.a
+              href="/AMAR_CV.pdf"
+              target="_blank"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-2 rounded-xl liquid-pill text-muted-foreground hover:text-primary transition-colors"
+              title="Curriculum Vitae"
+            >
+              <FileText className="w-3.5 h-3.5" />
+            </motion.a>
+
+            {/* Back to Top */}
+            <motion.button
+              onClick={scrollToTop}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="ml-1 px-3 py-1.5 rounded-xl glass border border-border hover:border-primary/40 text-foreground hover:text-primary text-xs font-semibold flex items-center gap-1.5 transition-all"
+              title="Scroll to top"
+            >
+              <span className="text-[11px]">Top</span>
+              <ArrowUp className="w-3 h-3" />
+            </motion.button>
           </div>
 
         </div>
 
-        {/* Bottom Bar: Copyright & Back to Top */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-          <div className="text-center sm:text-left space-y-0.5">
-            <p>© {new Date().getFullYear()} Amar Sinha. All rights reserved.</p>
-            <p className="text-[11px] text-muted-foreground/80">
-              Dr. Shyama Prasad Mukherjee IIIT Naya Raipur & ITM University Raipur
-            </p>
+        {/* Sub-bar: Navigation Links & Copyright */}
+        <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
+          
+          {/* Quick inline navigation pills */}
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5">
+            {navLinks.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-[11px] sm:text-xs text-muted-foreground hover:text-primary transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
           </div>
 
-          {/* Back to Top Floating Button */}
-          <motion.button
-            onClick={scrollToTop}
-            whileHover={{ scale: 1.04, y: -2 }}
-            whileTap={{ scale: 0.96 }}
-            className="px-4 py-2 rounded-full glass border border-border hover:border-primary/40 text-foreground hover:text-primary text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
-          >
-            <span>Back to top</span>
-            <ArrowUp className="w-3.5 h-3.5" />
-          </motion.button>
+          {/* Copyright text */}
+          <p className="text-[11px] text-muted-foreground/80 text-center sm:text-right">
+            © {new Date().getFullYear()} Amar Sinha • All rights reserved.
+          </p>
+
         </div>
+
       </div>
     </footer>
   );
