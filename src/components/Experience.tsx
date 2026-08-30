@@ -190,7 +190,7 @@ export const Experience: React.FC = () => {
                     <p className="text-sm text-muted-foreground mt-0.5">{edu.institution}</p>
 
                     {edu.specialization && (
-                      <p className="text-xs text-cyan-400 font-mono mt-2 bg-black/20 p-2 rounded-xl">
+                      <p className="text-xs text-primary font-mono mt-2 bg-secondary/40 p-2 rounded-xl border border-border/40">
                         Focus: {edu.specialization}
                       </p>
                     )}

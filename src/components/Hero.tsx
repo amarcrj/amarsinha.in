@@ -126,12 +126,12 @@ export const Hero: React.FC = () => {
                 />
               </div>
 
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-2.5 sm:gap-3">
                 <motion.button
                   onClick={scrollToPubs}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl bg-primary text-primary-foreground font-semibold text-xs shadow-glow hover:opacity-95 transition-all flex items-center gap-2"
+                  className="px-4 sm:px-5 py-3 sm:py-3 rounded-2xl bg-primary text-primary-foreground font-semibold text-xs shadow-glow hover:opacity-95 transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
                 >
                   <BookOpen className="w-4 h-4" />
                   <span>Explore Publications</span>
@@ -144,7 +144,7 @@ export const Hero: React.FC = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl glass hover:bg-secondary/70 text-foreground font-semibold text-xs transition-all flex items-center gap-2"
+                  className="px-4 sm:px-5 py-3 sm:py-3 rounded-2xl glass hover:bg-secondary/70 text-foreground font-semibold text-xs transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
                 >
                   <GraduationCap className="w-4 h-4 text-primary" />
                   <span>Google Scholar</span>
@@ -156,7 +156,7 @@ export const Hero: React.FC = () => {
                   target="_blank"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl glass hover:bg-secondary/70 text-foreground font-semibold text-xs transition-all flex items-center gap-2"
+                  className="px-4 sm:px-5 py-3 sm:py-3 rounded-2xl glass hover:bg-secondary/70 text-foreground font-semibold text-xs transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
                 >
                   <FileText className="w-4 h-4 text-muted-foreground" />
                   <span>Curriculum Vitae</span>
