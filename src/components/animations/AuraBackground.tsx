@@ -14,52 +14,16 @@ export const AuraBackground: React.FC<AuraBackgroundProps> = ({ children, classN
         position: 'relative',
         overflow: 'hidden',
         minHeight: '100vh',
-        /* NO backgroundColor - blend modes composite against body/page bg */
       }}
     >
-      {/* Layer 1 - Screen / Multiply */}
-      <div
-        className="aura-layer-1"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background:
-            'radial-gradient(ellipse 42% 48% at 68% 48%, rgba(45,140,137,0.34) 0%, rgba(25,76,75,0.16) 42%, transparent 78%)',
-          pointerEvents: 'none',
-          transform: 'translateZ(0)',
-          willChange: 'transform',
-        }}
-        aria-hidden="true"
-      />
+      {/* ========================================================
+          DARK MODE: "Quiet Glow" Nebula Layers (2 Layers + Film Grain)
+          ======================================================== */}
+      <div className="aura-dark-layer-1" aria-hidden="true" />
+      <div className="aura-dark-layer-2" aria-hidden="true" />
 
-      {/* Layer 2 - Screen / Multiply */}
-      <div
-        className="aura-layer-2"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background:
-            'radial-gradient(ellipse 20% 24% at 66% 48%, rgba(78,166,161,0.12) 0%, transparent 72%)',
-          opacity: 0.8,
-          pointerEvents: 'none',
-          transform: 'translateZ(0)',
-          willChange: 'transform',
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Film-grain overlay - SVG feTurbulence noise, overlay blend */}
-      <div
-        className="aura-grain"
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          mixBlendMode: 'overlay',
-          opacity: 0.75,
-          pointerEvents: 'none',
-        }}
-      >
+      {/* Film-grain overlay for Dark Mode */}
+      <div className="aura-dark-grain" aria-hidden="true">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <filter id="grain">
             <feTurbulence
@@ -80,7 +44,14 @@ export const AuraBackground: React.FC<AuraBackgroundProps> = ({ children, classN
         </svg>
       </div>
 
-      {/* Page Content sits above the absolute layers */}
+      {/* ========================================================
+          LIGHT MODE: "Mint Cloud" Nebula Layers (3 Layers)
+          ======================================================== */}
+      <div className="aura-light-layer-1" aria-hidden="true" />
+      <div className="aura-light-layer-2" aria-hidden="true" />
+      <div className="aura-light-layer-3" aria-hidden="true" />
+
+      {/* Page Content sits cleanly above all decorative layers */}
       <div style={{ position: 'relative', zIndex: 1 }}>{children}</div>
     </div>
   );

@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Amar Sinha - Aura "Quiet Glow" Analog Aesthetic Design System */
+/* Amar Sinha - Aura Dual Theme: "Quiet Glow" (Dark) & "Mint Cloud" (Light) */
 
 @layer base {
   :root {
@@ -18,7 +18,7 @@
     --popover: 36 20% 9.5%;
     --popover-foreground: 40 20% 96%;
 
-    /* Quiet Glow Signature Atmospheric Sage-Teal */
+    /* Signature Atmospheric Sage-Teal */
     --primary: 175 48% 52%;
     --primary-foreground: 36 24% 5%;
 
@@ -63,9 +63,9 @@
     --sidebar-ring: 175 48% 52%;
   }
 
-  /* Light mode adaptation */
+  /* Light mode adaptation: #faf8f2 Mint Cloud Backdrop */
   .light {
-    --background: 40 20% 97%;
+    --background: 43 38% 97%; /* #faf8f2 */
     --foreground: 36 24% 8%;
 
     --card: 0 0% 100%;
@@ -74,41 +74,41 @@
     --popover: 0 0% 100%;
     --popover-foreground: 36 24% 8%;
 
-    --primary: 175 58% 36%;
+    --primary: 168 76% 36%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 40 15% 92%;
+    --secondary: 40 18% 92%;
     --secondary-foreground: 36 24% 12%;
 
-    --muted: 40 12% 90%;
+    --muted: 40 15% 90%;
     --muted-foreground: 36 10% 45%;
 
-    --accent: 175 58% 36%;
+    --accent: 168 76% 36%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 40 12% 86%;
-    --input: 40 12% 86%;
-    --ring: 175 58% 36%;
+    --border: 40 14% 86%;
+    --input: 40 14% 86%;
+    --ring: 168 76% 36%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(175 58% 36%), hsl(195 65% 42%), hsl(35 60% 45%));
-    --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.6));
-    --gradient-glow: radial-gradient(ellipse at center, hsl(175 58% 36% / 0.08), transparent 70%);
+    --gradient-primary: linear-gradient(135deg, hsl(168 76% 36%), hsl(180 70% 38%), hsl(152 65% 40%));
+    --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.65));
+    --gradient-glow: radial-gradient(ellipse at center, hsl(168 76% 36% / 0.1), transparent 70%);
 
-    --shadow-glow: 0 0 30px hsl(175 58% 36% / 0.12);
-    --shadow-card: 0 20px 45px -12px rgba(0, 0, 0, 0.06);
-    --shadow-hover: 0 25px 50px -15px hsl(175 58% 36% / 0.15);
+    --shadow-glow: 0 0 30px hsl(168 76% 36% / 0.15);
+    --shadow-card: 0 20px 45px -12px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 25px 50px -15px hsl(168 76% 36% / 0.15);
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 36 24% 8%;
-    --sidebar-primary: 175 58% 36%;
+    --sidebar-primary: 168 76% 36%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 40 15% 92%;
+    --sidebar-accent: 40 18% 92%;
     --sidebar-accent-foreground: 36 24% 8%;
-    --sidebar-border: 40 12% 86%;
-    --sidebar-ring: 175 58% 36%;
+    --sidebar-border: 40 14% 86%;
+    --sidebar-ring: 168 76% 36%;
   }
 
   .dark {
@@ -147,15 +147,15 @@
     @apply border-border;
   }
 
-  /* Base color #100e0b on BODY */
   body {
     background-color: #100e0b;
     @apply text-foreground antialiased selection:bg-primary/25 selection:text-primary;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   }
 
-  .light body {
-    background-color: #f7f5f2;
+  .light body,
+  body.light {
+    background-color: #faf8f2;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -168,33 +168,123 @@
   }
 }
 
-/* Aura Background "Quiet Glow" Layer Styles */
-.aura-layer-1 {
+/* ========================================================
+   AURA GRADIENT LAYERS (Quiet Glow - Dark / Mint Cloud - Light)
+   ======================================================== */
+
+/* Dark Mode: Quiet Glow Layers */
+.aura-dark-layer-1 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 42% 48% at 68% 48%, rgba(45,140,137,0.34) 0%, rgba(25,76,75,0.16) 42%, transparent 78%);
   mix-blend-mode: screen;
   filter: blur(138px);
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
 }
 
 @media (min-width: 768px) {
-  .aura-layer-1 {
+  .aura-dark-layer-1 {
     filter: blur(198px);
   }
 }
 
-.aura-layer-2 {
+.aura-dark-layer-2 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 20% 24% at 66% 48%, rgba(78,166,161,0.12) 0%, transparent 72%);
   mix-blend-mode: screen;
   filter: blur(70px);
+  opacity: 0.8;
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
 }
 
 @media (min-width: 768px) {
-  .aura-layer-2 {
+  .aura-dark-layer-2 {
     filter: blur(101px);
   }
 }
 
-/* Light mode blend mode swap to multiply */
-.light .aura-layer-1,
-.light .aura-layer-2 {
-  mix-blend-mode: multiply;
+.aura-dark-grain {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: overlay;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+/* Light Mode: Mint Cloud Layers */
+.aura-light-layer-1 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 40% 45% at 30% 40%, rgba(52,211,153,0.7) 0%, transparent 65%);
+  mix-blend-mode: normal;
+  filter: blur(150px);
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .aura-light-layer-1 {
+    filter: blur(216px);
+  }
+}
+
+.aura-light-layer-2 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 35% 40% at 65% 55%, rgba(20,184,166,0.5) 0%, transparent 60%);
+  mix-blend-mode: normal;
+  filter: blur(138px);
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .aura-light-layer-2 {
+    filter: blur(198px);
+  }
+}
+
+.aura-light-layer-3 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 25% 30% at 75% 25%, rgba(110,231,183,0.4) 0%, transparent 55%);
+  mix-blend-mode: normal;
+  filter: blur(125px);
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .aura-light-layer-3 {
+    filter: blur(180px);
+  }
+}
+
+/* Display switching between themes */
+.light .aura-dark-layer-1,
+.light .aura-dark-layer-2,
+.light .aura-dark-grain {
+  display: none;
+}
+
+.aura-light-layer-1,
+.aura-light-layer-2,
+.aura-light-layer-3 {
+  display: none;
+}
+
+.light .aura-light-layer-1,
+.light .aura-light-layer-2,
+.light .aura-light-layer-3 {
+  display: block;
 }
 
 @layer utilities {
@@ -254,8 +344,8 @@
   }
 
   .light .liquid-glass-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.6) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.65) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.85);
     box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.08),
                 inset 0 1px 1px 0 rgba(255, 255, 255, 1);
   }
@@ -271,7 +361,7 @@
   }
 
   .light .liquid-pill {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.75);
     border: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.04),
                 inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
