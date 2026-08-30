@@ -18,12 +18,13 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <HashRouter>
+        <HashRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<Index />} />
-            <Route path="/experience" element={<Index />} />
+            <Route path="/research" element={<Index />} />
             <Route path="/publications" element={<Index />} />
+            <Route path="/experience" element={<Index />} />
             <Route path="/skills" element={<Index />} />
             <Route path="/teaching" element={<Index />} />
             <Route path="/leadership" element={<Index />} />
