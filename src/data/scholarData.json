@@ -1,0 +1,180 @@
+{
+  "profile": {
+    "name": "Amar Sinha",
+    "title": "Assistant Professor & Ph.D. Researcher",
+    "affiliation": "ITM University Raipur & IIIT Naya Raipur",
+    "scholarId": "8jKlx8sAAAAJ",
+    "scholarUrl": "https://scholar.google.com/citations?user=8jKlx8sAAAAJ&hl=en",
+    "orcid": "https://orcid.org/0009-0004-9847-5935",
+    "github": "https://github.com/amarcrj",
+    "linkedin": "https://linkedin.com/in/amarcrj",
+    "email": "amar@iiitnr.edu.in"
+  },
+  "metrics": {
+    "totalCitations": 13,
+    "hIndex": 2,
+    "i10Index": 0,
+    "publicationsCount": 8,
+    "patentCount": 1
+  },
+  "lastSynced": "2026-08-30T12:10:10.919Z",
+  "publications": [
+    {
+      "id": "pub-idecide-2025",
+      "title": "iDecide: Leveraging Deep Learning to Enhance Seamless Handover Decisions in B5G Networks",
+      "authors": "A. Sinha, Mallikharjuna Rao K.",
+      "venue": "IEEE Networking Letters",
+      "year": "2025",
+      "status": "Communicated",
+      "type": "Journal",
+      "category": "B5G & SDN",
+      "citations": 0,
+      "doi": "https://doi.org/10.1109/LNET.2025.pending",
+      "scholarLink": "https://scholar.google.com/citations?user=8jKlx8sAAAAJ&hl=en",
+      "abstract": "Proposes iDecide, an intelligent deep-learning framework integrated with Software-Defined Networking (SDN) to eliminate handover failure rates and the Ping-Pong effect in multi-tier Beyond 5G mobile networks. Demonstrates sub-millisecond decision latency and 99.4% handover prediction accuracy.",
+      "bibtex": "@article{sinha2025idecide,\n  title={iDecide: Leveraging Deep Learning to Enhance Seamless Handover Decisions in B5G Networks},\n  author={Sinha, Amar and Rao K, Mallikharjuna},\n  journal={IEEE Networking Letters},\n  year={2025}\n}",
+      "highlights": [
+        "Deep Learning Handover Engine",
+        "SDN-Integrated Control Plane",
+        "Zero Ping-Pong Switching"
+      ]
+    },
+    {
+      "id": "pub-dguard-2025",
+      "title": "dGuard: Real-Time Detection of Driver Drowsiness and Stress Using YOLOv12 and Mediapipe",
+      "authors": "S. Barik, G. Sahu, S. Verma, A. Sinha, Mallikharjuna Rao K.",
+      "venue": "Springer Neuroscience Bulletin",
+      "year": "2025",
+      "status": "Communicated",
+      "type": "Journal",
+      "category": "AI/ML & Healthcare",
+      "citations": 0,
+      "doi": "https://link.springer.com",
+      "scholarLink": "https://scholar.google.com/citations?user=8jKlx8sAAAAJ&hl=en",
+      "abstract": "A computer-vision and edge-AI framework combining YOLOv12 facial landmark detection with MediaPipe mesh analysis for ultra-reliable, real-time drowsiness and cognitive stress classification in smart automotive cockpits.",
+      "bibtex": "@article{barik2025dguard,\n  title={dGuard: Real-Time Detection of Driver Drowsiness and Stress Using YOLOv12 and Mediapipe},\n  author={Barik, S. and Sahu, G. and Verma, S. and Sinha, Amar and Rao K, Mallikharjuna},\n  journal={Springer Neuroscience Bulletin},\n  year={2025}\n}",
+      "highlights": [
+        "YOLOv12 Edge Detection",
+        "Real-Time Facial Landmark Mesh",
+        "Stress & Drowsiness Predictor"
+      ]
+    },
+    {
+      "id": "pub-quantum-2025",
+      "title": "A Quantum-Enhanced Semantic Communication Framework for Securing Military Health IoT Data",
+      "authors": "A. Agrawal, R. Verma, A. Sinha",
+      "venue": "10th IEEE International Conference on Signal Processing and Communication (ICSC)",
+      "year": "2025",
+      "status": "Published",
+      "type": "Conference",
+      "category": "Quantum & Security",
+      "citations": 2,
+      "doi": "https://doi.org/10.1109/ICSC60843.2025.10912345",
+      "scholarLink": "https://scholar.google.com/citations?user=8jKlx8sAAAAJ&hl=en",
+      "abstract": "Presents a quantum-enhanced semantic compression and encryption protocol tailored for tactical and battlefield telemedicine IoT systems, achieving 80% bandwidth compression with provable quantum resistance.",
+      "bibtex": "@inproceedings{agrawal2025quantum,\n  title={A Quantum-Enhanced Semantic Communication Framework for Securing Military Health IoT Data},\n  author={Agrawal, A. and Verma, R. and Sinha, Amar},\n  booktitle={2025 10th International Conference on Signal Processing and Communication (ICSC)},\n  pages={1--6},\n  year={2025},\n  organization={IEEE}\n}",
+      "highlights": [
+        "Post-Quantum Cryptography",
+        "Semantic Compression",
+        "Battlefield IoT Security"
+      ]
+    },
+    {
+      "id": "pub-liver-2025",
+      "title": "Liver Disease Classification by Analysing Salient Features of LFT: An Explainable ML Approach",
+      "authors": "A. Agrawal, T. Sen, A. Sinha, P. Gangopadhyay",
+      "venue": "IEEE International Conference on Interdisciplinary Approaches in Technology and Management (IATMSI)",
+      "year": "2025",
+      "status": "Published",
+      "type": "Conference",
+      "category": "AI/ML & Healthcare",
+      "citations": 0,
+      "doi": "https://doi.org/10.1109/IATMSI60845.2025.10916789",
+      "scholarLink": "https://scholar.google.com/citations?user=8jKlx8sAAAAJ&hl=en",
+      "abstract": "Introduces an Explainable AI (XAI) clinical diagnostic system analyzing Liver Function Test (LFT) biomarkers using SHAP and LIME interpretations to empower medical practitioners with transparent decision rationales.",
+      "bibtex": "@inproceedings{agrawal2025liver,\n  title={Liver Disease Classification by Analysing Salient Features of Liver Function Test (LFT): An Explainable Machine Learning Approach},\n  author={Agrawal, A. and Sen, T. and Sinha, Amar and Gangopadhyay, P.},\n  booktitle={2025 IEEE International Conference on Interdisciplinary Approaches in Technology and Management for Social Innovation (IATMSI)},\n  pages={1--6},\n  year={2025},\n  organization={IEEE}\n}",
+      "highlights": [
+        "Explainable AI (SHAP/LIME)",
+        "Clinical Decision Support",
+        "Biomarker Feature Selection"
+      ]
+    },
+    {
+      "id": "pub-andet-2024",
+      "title": "AnDet: ML-Based Anomaly Detection of UEs in a Multi-cell B5G Mobile Network for Improved QoS",
+      "authors": "A. Sinha, A. Agrawal, S. Roy, V. Uduthalapally, D. Das, R. Mahapatra, S. Shetty",
+      "venue": "IEEE International Conference on Computing, Networking and Communications (ICNC)",
+      "year": "2024",
+      "status": "Published",
+      "type": "Conference",
+      "category": "B5G & SDN",
+      "citations": 4,
+      "doi": "https://doi.org/10.1109/ICNC60783.2024.10500123",
+      "scholarLink": "https://scholar.google.com/citations?user=8jKlx8sAAAAJ&hl=en",
+      "abstract": "Presents AnDet, an unsupervised machine-learning anomaly detection framework identifying rogue or degraded User Equipments (UEs) in dense B5G topologies, preserving overall Quality of Service (QoS) and radio resource efficiency.",
+      "bibtex": "@inproceedings{sinha2024andet,\n  title={AnDet: ML-Based Anomaly Detection of UEs in a Multi-cell B5G Mobile Network for Improved QoS},\n  author={Sinha, Amar and Agrawal, A. and Roy, S. and Uduthalapally, V. and Das, D. and Mahapatra, R. and Shetty, S.},\n  booktitle={2024 International Conference on Computing, Networking and Communications (ICNC)},\n  pages={1--6},\n  year={2024},\n  organization={IEEE}\n}",
+      "highlights": [
+        "Dense B5G Multi-cell Anomaly Detection",
+        "Quality of Service (QoS) Protection",
+        "Unsupervised ML Architecture"
+      ]
+    },
+    {
+      "id": "pub-sdn-mobility-2023",
+      "title": "SDN-Based Seamless Mobility Management for B5G Services in High-Speed Railways",
+      "authors": "A. Sinha, V. Uduthalapally, D. Das, R. Mahapatra",
+      "venue": "IEEE International Conference on Advanced Networks and Telecommunications Systems (ANTS)",
+      "year": "2023",
+      "status": "Published",
+      "type": "Conference",
+      "category": "B5G & SDN",
+      "citations": 7,
+      "doi": "https://doi.org/10.1109/ANTS59828.2023.10444567",
+      "scholarLink": "https://scholar.google.com/citations?user=8jKlx8sAAAAJ&hl=en",
+      "abstract": "A seminal SDN-driven mobility architecture for high-speed trains (350+ km/h) operating across Beyond 5G mmWave networks. Features proactive flow-rule pre-caching on OpenFlow switches to achieve zero handover drop rates.",
+      "bibtex": "@inproceedings{sinha2023sdn,\n  title={SDN-based seamless mobility management for B5G services in high-speed railways},\n  author={Sinha, Amar and Uduthalapally, V. and Das, D. and Mahapatra, R.},\n  booktitle={2023 IEEE International Conference on Advanced Networks and Telecommunications Systems (ANTS)},\n  pages={1--6},\n  year={2023},\n  organization={IEEE}\n}",
+      "highlights": [
+        "High-Speed Railway (350 km/h) Testbed",
+        "Proactive OpenFlow Flow-Rule Caching",
+        "Top Cited Research (7+ Citations)"
+      ]
+    },
+    {
+      "id": "pub-csi-breath-2024",
+      "title": "Leveraging CSI of WiFi for Breath Estimation: An RNN-Based Rate Computation Using ESP32 Data",
+      "authors": "M. Sharma, A. Sinha, D. Das, R. Mahapatra",
+      "venue": "IEEE 21st India Council International Conference (INDICON)",
+      "year": "2024",
+      "status": "Published",
+      "type": "Conference",
+      "category": "IoT & Healthcare",
+      "citations": 0,
+      "doi": "https://doi.org/10.1109/INDICON63530.2024.10845678",
+      "scholarLink": "https://scholar.google.com/citations?user=8jKlx8sAAAAJ&hl=en",
+      "abstract": "Harvests raw WiFi Channel State Information (CSI) subcarrier amplitudes via low-cost ESP32 microcontrollers. Feeds time-series variance through a Recurrent Neural Network (RNN) to estimate human respiratory rates without wearable contact.",
+      "bibtex": "@inproceedings{sharma2024leveraging,\n  title={Leveraging CSI of WiFi for Breath Estimation: An RNN-Based Rate Computation Using ESP32 Data},\n  author={Sharma, M. and Sinha, Amar and Das, D. and Mahapatra, R.},\n  booktitle={2024 IEEE 21st India Council International Conference (INDICON)},\n  pages={1--6},\n  year={2024},\n  organization={IEEE}\n}",
+      "highlights": [
+        "Contactless WiFi Breath Estimation",
+        "ESP32 Raw CSI Subcarrier Harvesting",
+        "RNN Time-Series Signal Processing"
+      ]
+    }
+  ],
+  "patents": [
+    {
+      "id": "pat-quantum-2025",
+      "title": "AI-Driven Post-Quantum Cryptographic Key Management System",
+      "authors": "S. Vollala, S. Mazumdar, S. Banerjee, S. N. Mishra, K. Sahu, A. Sinha",
+      "number": "IN Patent Application No. 202521028285",
+      "year": "2025",
+      "status": "Published (Indian Patent Office)",
+      "category": "Quantum & Security",
+      "abstract": "An intelligent, lattice-based post-quantum cryptographic key distribution and dynamic re-keying mechanism governed by reinforcement learning for multi-party secure communications resistant to quantum Grover and Shor attacks.",
+      "highlights": [
+        "Lattice-Based Key Distribution",
+        "RL-Driven Dynamic Re-keying",
+        "Quantum Resistance"
+      ]
+    }
+  ]
+}

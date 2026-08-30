@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { Users, Award, Shield } from 'lucide-react';
+// src/components/Leadership.tsx
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { Users, Award, Shield, CheckCircle2 } from 'lucide-react';
 
 const leadership = [
   {
@@ -11,9 +11,9 @@ const leadership = [
     location: 'Dr. Shyama Prasad Mukherjee IIIT Naya Raipur',
     period: '2024 – Present',
     achievements: [
-      'Organized 5+ technical workshops',
-      'Increased active membership by 40%',
-      'Managed executive committee of 5 members',
+      'Organized 5+ technical workshops on B5G, SDN, and Edge AI.',
+      'Increased active branch membership by 40%.',
+      'Managed executive committee and technical outreach programs.',
     ],
   },
   {
@@ -23,97 +23,109 @@ const leadership = [
     location: 'IIIT Naya Raipur',
     period: '2024 – 2025',
     achievements: [
-      'Represented 50+ PG students in institute council',
-      'Led initiatives improving research facilities',
-      'Enhanced student-faculty collaboration',
+      'Represented 50+ postgraduate research scholars in institute council.',
+      'Led initiatives modernizing network research lab facilities.',
+      'Enhanced academic student-faculty collaboration pipelines.',
     ],
   },
   {
     icon: Shield,
     role: 'Ph.D. Student Member',
-    organization: 'Anti-Ragging Committee',
+    organization: 'Anti-Ragging & Welfare Committee',
     location: 'IIIT Naya Raipur',
     period: '2024 – 2025',
     achievements: [
-      'Facilitated awareness sessions for 300+ new entrants',
-      'Supported student welfare initiatives',
-      'Upheld anti-ragging regulations',
+      'Facilitated orientation and awareness sessions for 300+ incoming scholars.',
+      'Supported graduate student welfare and ethical academic guidelines.',
+      'Upheld institutional statutory regulations and campus integrity.',
     ],
   },
 ];
 
 const memberships = [
   'Graduate Student Member, IEEE',
+  'IEEE Communications Society (ComSoc)',
   'IEEE Young Professionals',
   'Student Member, ACM',
-  'IEEE ComSoc',
   'IEEE Systems Council',
-  'IEEE CTSoc',
+  'IEEE Consumer Technology Society (CTSoc)',
   'IEEE Future Networks Community',
 ];
 
-export const Leadership = () => {
+export const Leadership: React.FC = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="section-padding">
+    <section id="leadership" className="section-padding relative overflow-hidden">
       <div className="container mx-auto px-6" ref={ref}>
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-medium uppercase tracking-widest">Community Impact</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4">
-            Leadership &{' '}
-            <span className="text-gradient">Memberships</span>
+          <span className="text-primary text-sm font-medium uppercase tracking-widest font-mono">
+            Service & Community
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-3">
+            Leadership & <span className="text-gradient">Professional Service</span>
           </h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            Active stewardship in IEEE student chapters, institutional councils, and international technical societies.
+          </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-6 mb-12">
+        {/* Roles Grid */}
+        <div className="grid lg:grid-cols-3 gap-6 mb-12 max-w-6xl mx-auto">
           {leadership.map((item, index) => (
             <motion.div
               key={item.role}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 * index }}
-              whileHover={{ y: -5 }}
-              className="p-6 rounded-2xl glass hover:shadow-card-hover transition-all duration-300 group"
+              transition={{ duration: 0.4, delay: 0.1 * index }}
+              className="p-6 rounded-3xl glass border border-border/70 hover:border-primary/40 hover:shadow-card-hover transition-all duration-300 group flex flex-col justify-between"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <item.icon className="w-6 h-6 text-primary" />
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-secondary/80 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                  <item.icon className="w-5 h-5" />
+                </div>
+                <span className="text-xs font-mono font-bold text-primary uppercase tracking-wider">
+                  {item.period}
+                </span>
+                <h3 className="text-lg font-bold text-foreground mt-1.5">{item.role}</h3>
+                <p className="text-xs font-semibold text-primary/90 mt-0.5">{item.organization}</p>
+                <p className="text-[11px] text-muted-foreground">{item.location}</p>
+
+                <ul className="mt-4 space-y-2">
+                  {item.achievements.map((achievement, i) => (
+                    <li key={i} className="text-xs text-muted-foreground flex items-start gap-2">
+                      <span className="text-primary mt-0.5">▹</span>
+                      <span>{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <span className="text-xs font-medium text-primary uppercase tracking-wider">{item.period}</span>
-              <h3 className="text-lg font-semibold mt-2">{item.role}</h3>
-              <p className="text-sm text-muted-foreground mt-1">{item.organization}</p>
-              <p className="text-xs text-muted-foreground/70">{item.location}</p>
-              <ul className="mt-4 space-y-2">
-                {item.achievements.map((achievement, i) => (
-                  <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                    <span className="text-primary mt-1">▹</span>
-                    {achievement}
-                  </li>
-                ))}
-              </ul>
             </motion.div>
           ))}
         </div>
 
         {/* Professional Memberships */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="p-8 rounded-2xl glass text-center"
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="p-8 rounded-3xl glass border border-border/70 text-center max-w-4xl mx-auto"
         >
-          <h3 className="text-xl font-semibold mb-6">Professional Memberships</h3>
-          <div className="flex flex-wrap justify-center gap-3">
+          <h3 className="text-base font-bold text-foreground mb-4 uppercase tracking-wider font-mono text-xs text-primary">
+            Professional Society Memberships
+          </h3>
+          <div className="flex flex-wrap justify-center gap-2">
             {memberships.map((membership) => (
               <span
                 key={membership}
-                className="px-4 py-2 text-sm rounded-full glass text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors"
+                className="px-3.5 py-1.5 text-xs font-medium rounded-xl bg-secondary/50 text-foreground border border-border/50 hover:border-primary/40 transition-colors"
               >
                 {membership}
               </span>
