@@ -37,7 +37,7 @@ export const Contact: React.FC = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="contact" className="section-padding bg-card/20 relative overflow-hidden">
+    <section id="contact" className="section-padding relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6" ref={ref}>
         {/* Header */}
         <motion.div

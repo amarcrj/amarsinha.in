@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative border-t border-border/80 bg-card/40 backdrop-blur-xl py-10 sm:py-12 overflow-hidden">
+    <footer className="relative border-t border-border/80 bg-background/20 backdrop-blur-xl py-10 sm:py-12 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Tier 1: Brand, Mission & Social Links */}

@@ -69,7 +69,7 @@ export const Experience: React.FC = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="experience" className="section-padding bg-card/20 relative overflow-hidden">
+    <section id="experience" className="section-padding relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 relative z-10" ref={ref}>
         {/* Header */}
         <motion.div

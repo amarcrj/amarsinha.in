@@ -169,7 +169,7 @@
 }
 
 /* ========================================================
-   AURA GRADIENT LAYERS (Abyssal Void - Dark / Mint Cloud - Light)
+   GLOBAL AURA GRADIENT LAYERS (Fixed Backdrop across all scroll)
    ======================================================== */
 
 /* Dark Mode: Abyssal Void Layers (4 Layers) */
@@ -178,7 +178,8 @@
   inset: 0;
   background: radial-gradient(circle at 50% 40%, rgba(6,182,212,0.5) 0%, transparent 40%);
   mix-blend-mode: screen;
-  filter: blur(175px);
+  filter: blur(200px);
+  opacity: 0.64;
   transform: translateZ(0);
   will-change: transform;
   pointer-events: none;
@@ -186,7 +187,7 @@
 
 @media (min-width: 768px) {
   .aura-dark-layer-1 {
-    filter: blur(252px);
+    filter: blur(260px);
   }
 }
 
